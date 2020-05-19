@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<!-- 
+APO Prototype
+Author: Michael Lin
+ -->
+<html dir="ltr" class="spectrum spectrum--medium spectrum--lightest">
+
+<head>
+  <title>Adobe Post Office</title>
+  <meta charset="utf-8" />
+  <meta name="author" content="Michael Lin" />
+  <meta name="description" content="Adobe Post Office Prototype" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="scripts/jquery.bez.min.js"></script>
+
+  <script src="scripts/global.js"></script>
+  <script src="scripts/filter.js"></script>
+  <script src="scripts/card.js"></script>
+  <script src="scripts/spectrumCSS-enhancement.js"></script>
+
+  <script src="../node_modules/loadicons/index.js"></script>
+  <script>
+    loadIcons('../node_modules/@adobe/spectrum-css-workflow-icons/dist/spectrum-icons.svg');
+    loadIcons('../node_modules/@spectrum-css/icon/dist/spectrum-css-icons.svg');
+  </script>
+
+  <script src="../node_modules/@adobe/focus-ring-polyfill/index.js"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/fxv3bmh.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Include global variables first -->
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/vars/dist/spectrum-global.css">
+
+  <!-- Include only the scales your application needs -->
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/vars/dist/spectrum-medium.css">
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/vars/dist/spectrum-large.css">
+
+  <!-- Include only the colorstops your application needs -->
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/vars/dist/spectrum-lightest.css">
+
+  <!-- Include index-vars.css for all components you need -->
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/page/dist/index-vars.css">
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/typography/dist/index-vars.css">
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/icon/dist/index-vars.css">
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/button/dist/index-vars.css">
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/toggle/dist/index-vars.css">
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/link/dist/index-vars.css">
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/card/dist/index-vars.css">
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/checkbox/dist/index-vars.css">
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/quickaction/dist/index-vars.css">
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/dropdown/dist/index-vars.css">
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/inputgroup/dist/index-vars.css">
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/textfield/dist/index-vars.css">
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/fieldlabel/dist/index-vars.css">
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/tags/dist/index-vars.css">
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/popover/dist/index-vars.css">
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/menu/dist/index-vars.css">
+  <link rel="stylesheet" href="../node_modules/@spectrum-css/actionmenu/dist/index-vars.css">
+
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <!-- GLOBAL HEADER -->
+  <div class="global-header">
+    <div class="nav-container">
+      <a class="adobe-icon" href=""></a>
+      <h1 class="spectrum-Heading spectrum-Heading--XXS">Adobe Post Office</h1>
+      <nav>
+        <ul>
+          <div class="active-underline"></div>
+          <li>
+            <a class="spectrum-Body spectrum-Body--S active" href="">Browse templates</a>
+          </li>
+          <li>
+            <a class="spectrum-Body spectrum-Body--S" href="">My projects</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="account-container">
+      <img class="team-icon" src="images/acrobat-icon.png">
+      <a class="account-avatar" href=""></a>
+    </div>
+  </div>
+
+  <div class="main-container">
+
+    <div class="left-sidebar">
+      <button class="spectrum-ActionButton spectrum-ActionButton--quiet sidebar-filter-button">
+        <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="Edit">
+          <use xlink:href="#spectrum-icon-18-Properties" />
+        </svg>
+      </button>
+
+      <button class="spectrum-ActionButton spectrum-ActionButton--quiet">
+        <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="Edit">
+          <use xlink:href="#spectrum-icon-18-Heart" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="filter-container">
+      <div class="panel">
+        <div class="header title">
+          <h4 class="spectrum-Heading spectrum-Heading--XS">Filters</h4>
+          <button class="spectrum-ActionButton spectrum-ActionButton--quiet expand-all">
+            <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="Edit">
+              <use xlink:href="#spectrum-icon-18-TreeExpandAll" />
+            </svg>
+          </button>
+          <div class="more-actions-dropdown">
+            <button class="spectrum-ActionButton spectrum-ActionButton--quiet more-options">
+              <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="Edit">
+                <use xlink:href="#spectrum-icon-18-More" />
+              </svg>
+            </button>
+            <div class="spectrum-Popover spectrum-Popover--bottom">
+              <ul class="spectrum-Menu" role="menu">
+                <li class="spectrum-Menu-item" role="menuitem" tabindex="0">
+                  <span class="spectrum-Menu-itemLabel">Action 1</span>
+                </li>
+                <li class="spectrum-Menu-item" role="menuitem" tabindex="0">
+                  <span class="spectrum-Menu-itemLabel">Action 2</span>
+                </li>
+                <li class="spectrum-Menu-item" role="menuitem" tabindex="0">
+                  <span class="spectrum-Menu-itemLabel">Action 3</span>
+                </li>
+                <li class="spectrum-Menu-item" role="menuitem" tabindex="0">
+                  <span class="spectrum-Menu-itemLabel">Action 4</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel filter" data-type="adobeTeam">
+        <div class="header">
+          <div class="icon-chevron"></div>
+          <h6 class="spectrum-Heading spectrum-Heading--XXS">Adobe team</h6>
+        </div>
+        <div class="content hidden">
+          <div class="combo-box">
+            <input type="text" name="team" placeholder="Select your Adobe team...">
+            <button class="spectrum-FieldButton spectrum-InputGroup-button" tabindex="-1" aria-haspopup="true">
+              <svg class="spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-InputGroup-icon" focusable="false"
+                aria-hidden="true">
+                <use xlink:href="#spectrum-css-icon-ChevronDownMedium" />
+              </svg>
+            </button>
+          </div>
+          <!-- Tag content insertion  -->
+
+        </div>
+      </div>
+
+      <div class="panel filter" data-type="adobeProduct">
+        <div class="header">
+          <div class="icon-chevron"></div>
+          <h6 class="spectrum-Heading spectrum-Heading--XXS">Adobe product</h6>
+        </div>
+        <div class="content hidden">
+          <div class="combo-box">
+            <input type="text" name="product" placeholder="Select a product...">
+            <button class="spectrum-FieldButton spectrum-InputGroup-button" tabindex="-1" aria-haspopup="true">
+              <svg class="spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-InputGroup-icon" focusable="false"
+                aria-hidden="true">
+                <use xlink:href="#spectrum-css-icon-ChevronDownMedium" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel filter" data-type="productFlow">
+        <div class="header">
+          <div class="icon-chevron"></div>
+          <h6 class="spectrum-Heading spectrum-Heading--XXS">Product flows</h6>
+        </div>
+        <div class="content hidden">
+          <div class="combo-box">
+            <input type="text" name="product" placeholder="Select a product flow...">
+            <button class="spectrum-FieldButton spectrum-InputGroup-button" tabindex="-1" aria-haspopup="true">
+              <svg class="spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-InputGroup-icon" focusable="false"
+                aria-hidden="true">
+                <use xlink:href="#spectrum-css-icon-ChevronDownMedium" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel filter" data-type="triggerEvent">
+        <div class="header">
+          <div class="icon-chevron"></div>
+          <h6 class="spectrum-Heading spectrum-Heading--XXS">Trigger event</h6>
+        </div>
+        <div class="content hidden">
+          <div class="combo-box">
+            <input type="text" name="product" placeholder="Select an event...">
+            <button class="spectrum-FieldButton spectrum-InputGroup-button" tabindex="-1" aria-haspopup="true">
+              <svg class="spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-InputGroup-icon" focusable="false"
+                aria-hidden="true">
+                <use xlink:href="#spectrum-css-icon-ChevronDownMedium" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel filter" data-type="publishedInPast">
+        <div class="header">
+          <div class="icon-chevron"></div>
+          <h6 class="spectrum-Heading spectrum-Heading--XXS">Published in past</h6>
+        </div>
+        <div class="content hidden">
+          <div class="spectrum-Dropdown">
+            <button class=" spectrum-FieldButton spectrum-Dropdown-trigger" aria-haspopup="listbox">
+              <span class="spectrum-Dropdown-label">Anytime</span>
+              <svg class="spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-Dropdown-icon" focusable="false"
+                aria-hidden="true">
+                <use xlink:href="#spectrum-css-icon-ChevronDownMedium" />
+              </svg>
+            </button>
+            <div class="spectrum-Popover spectrum-Popover--bottom spectrum-Dropdown-popover" style="width: 100%">
+              <ul class="spectrum-Menu" role="listbox">
+                <li class="spectrum-Menu-item" role="option" tabindex="0">
+                  <span class="spectrum-Menu-itemLabel">Anytime</span>
+                  <svg
+                    class="spectrum-Icon spectrum-UIIcon-CheckmarkMedium spectrum-Menu-checkmark spectrum-Menu-itemIcon"
+                    focusable="false" aria-hidden="true">
+                    <use xlink:href="#spectrum-css-icon-CheckmarkMedium" />
+                  </svg>
+                </li>
+                <li class="spectrum-Menu-item" role="option" tabindex="0">
+                  <span class="spectrum-Menu-itemLabel">1 month</span>
+                  <svg
+                    class="spectrum-Icon spectrum-UIIcon-CheckmarkMedium spectrum-Menu-checkmark spectrum-Menu-itemIcon"
+                    focusable="false" aria-hidden="true">
+                    <use xlink:href="#spectrum-css-icon-CheckmarkMedium" />
+                  </svg>
+                </li>
+                <li class="spectrum-Menu-item" role="option" tabindex="0">
+                  <span class="spectrum-Menu-itemLabel">3 months</span>
+                  <svg
+                    class="spectrum-Icon spectrum-UIIcon-CheckmarkMedium spectrum-Menu-checkmark spectrum-Menu-itemIcon"
+                    focusable="false" aria-hidden="true">
+                    <use xlink:href="#spectrum-css-icon-CheckmarkMedium" />
+                  </svg>
+                </li>
+                <li class="spectrum-Menu-item" role="option" tabindex="0">
+                  <span class="spectrum-Menu-itemLabel">6 months</span>
+                  <svg
+                    class="spectrum-Icon spectrum-UIIcon-CheckmarkMedium spectrum-Menu-checkmark spectrum-Menu-itemIcon"
+                    focusable="false" aria-hidden="true">
+                    <use xlink:href="#spectrum-css-icon-CheckmarkMedium" />
+                  </svg>
+                </li>
+                <li class="spectrum-Menu-item" role="option" tabindex="0">
+                  <span class="spectrum-Menu-itemLabel">12 months</span>
+                  <svg
+                    class="spectrum-Icon spectrum-UIIcon-CheckmarkMedium spectrum-Menu-checkmark spectrum-Menu-itemIcon"
+                    focusable="false" aria-hidden="true">
+                    <use xlink:href="#spectrum-css-icon-CheckmarkMedium" />
+                  </svg>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel filter" data-type="createdBy">
+        <div class="header">
+          <div class="icon-chevron"></div>
+          <h6 class="spectrum-Heading spectrum-Heading--XXS">Created by</h6>
+        </div>
+        <div class="content hidden">
+          <div class="combo-box">
+            <input type="text" name="product" placeholder="Enter a person's name...">
+            <button class="spectrum-FieldButton spectrum-InputGroup-button" tabindex="-1" aria-haspopup="true">
+              <svg class="spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-InputGroup-icon" focusable="false"
+                aria-hidden="true">
+                <use xlink:href="#spectrum-css-icon-ChevronDownMedium" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel filter" data-type="receivingAudience">
+        <div class="header">
+          <div class="icon-chevron"></div>
+          <h6 class="spectrum-Heading spectrum-Heading--XXS">Receiving audience</h6>
+        </div>
+        <div class="content hidden">
+          <div class="combo-box">
+            <input type="text" name="product" placeholder="Select an audience...">
+            <button class="spectrum-FieldButton spectrum-InputGroup-button" tabindex="-1" aria-haspopup="true">
+              <svg class="spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-InputGroup-icon" focusable="false"
+                aria-hidden="true">
+                <use xlink:href="#spectrum-css-icon-ChevronDownMedium" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel filter" data-type="language">
+        <div class="header">
+          <div class="icon-chevron"></div>
+          <h6 class="spectrum-Heading spectrum-Heading--XXS">Languages</h6>
+        </div>
+        <div class="content hidden">
+          <div class="combo-box">
+            <input type="text" name="product" placeholder="Select a language...">
+            <button class="spectrum-FieldButton spectrum-InputGroup-button" tabindex="-1" aria-haspopup="true">
+              <svg class="spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-InputGroup-icon" focusable="false"
+                aria-hidden="true">
+                <use xlink:href="#spectrum-css-icon-ChevronDownMedium" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel filter" data-type="triggerSystem">
+        <div class="header">
+          <div class="icon-chevron"></div>
+          <h6 class="spectrum-Heading spectrum-Heading--XXS">Triggering system</h6>
+        </div>
+        <div class="content hidden">
+          <p class="spectrum-Body spectrum-Body--XS description">System used to send out emails initiated by a
+            triggering event.</p>
+          <div class="combo-box">
+            <input type="text" name="product" placeholder="Select a system...">
+            <button class="spectrum-FieldButton spectrum-InputGroup-button" tabindex="-1" aria-haspopup="true">
+              <svg class="spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-InputGroup-icon" focusable="false"
+                aria-hidden="true">
+                <use xlink:href="#spectrum-css-icon-ChevronDownMedium" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel filter" data-type="publishEnvironment">
+        <div class="header">
+          <div class="icon-chevron"></div>
+          <h6 class="spectrum-Heading spectrum-Heading--XXS">Publishing environment</h6>
+        </div>
+        <div class="content hidden">
+          <p class="spectrum-Body spectrum-Body--XS description">Email templates sent on different environments
+            such as testing or production.</p>
+          <label class="spectrum-Checkbox">
+            <input type="checkbox" class="spectrum-Checkbox-input" id="checkbox-0">
+            <span class="spectrum-Checkbox-box">
+              <svg class="spectrum-Icon spectrum-UIIcon-CheckmarkSmall spectrum-Checkbox-checkmark" focusable="false"
+                aria-hidden="true">
+                <use xlink:href="#spectrum-css-icon-CheckmarkSmall" />
+              </svg>
+              <svg class="spectrum-Icon spectrum-UIIcon-DashSmall spectrum-Checkbox-partialCheckmark" focusable="false"
+                aria-hidden="true">
+                <use xlink:href="#spectrum-css-icon-DashSmall" />
+              </svg>
+            </span>
+            <span class="spectrum-Checkbox-label">Production</span>
+          </label>
+          <label class="spectrum-Checkbox">
+            <input type="checkbox" class="spectrum-Checkbox-input" id="checkbox-0">
+            <span class="spectrum-Checkbox-box">
+              <svg class="spectrum-Icon spectrum-UIIcon-CheckmarkSmall spectrum-Checkbox-checkmark" focusable="false"
+                aria-hidden="true">
+                <use xlink:href="#spectrum-css-icon-CheckmarkSmall" />
+              </svg>
+              <svg class="spectrum-Icon spectrum-UIIcon-DashSmall spectrum-Checkbox-partialCheckmark" focusable="false"
+                aria-hidden="true">
+                <use xlink:href="#spectrum-css-icon-DashSmall" />
+              </svg>
+            </span>
+            <span class="spectrum-Checkbox-label">Stage</span>
+          </label>
+          <label class="spectrum-Checkbox">
+            <input type="checkbox" class="spectrum-Checkbox-input" id="checkbox-0">
+            <span class="spectrum-Checkbox-box">
+              <svg class="spectrum-Icon spectrum-UIIcon-CheckmarkSmall spectrum-Checkbox-checkmark" focusable="false"
+                aria-hidden="true">
+                <use xlink:href="#spectrum-css-icon-CheckmarkSmall" />
+              </svg>
+              <svg class="spectrum-Icon spectrum-UIIcon-DashSmall spectrum-Checkbox-partialCheckmark" focusable="false"
+                aria-hidden="true">
+                <use xlink:href="#spectrum-css-icon-DashSmall" />
+              </svg>
+            </span>
+            <span class="spectrum-Checkbox-label">QE</span>
+          </label>
+          <label class="spectrum-Checkbox">
+            <input type="checkbox" class="spectrum-Checkbox-input" id="checkbox-0">
+            <span class="spectrum-Checkbox-box">
+              <svg class="spectrum-Icon spectrum-UIIcon-CheckmarkSmall spectrum-Checkbox-checkmark" focusable="false"
+                aria-hidden="true">
+                <use xlink:href="#spectrum-css-icon-CheckmarkSmall" />
+              </svg>
+              <svg class="spectrum-Icon spectrum-UIIcon-DashSmall spectrum-Checkbox-partialCheckmark" focusable="false"
+                aria-hidden="true">
+                <use xlink:href="#spectrum-css-icon-DashSmall" />
+              </svg>
+            </span>
+            <span class="spectrum-Checkbox-label">Dev</span>
+          </label>
+        </div>
+
+      </div>
+
+      <!-- <div class="panel filter" data-type="customTags">
+        <div class="header">
+          <div class="icon-chevron"></div>
+          <h6 class="spectrum-Heading spectrum-Heading--XXS">Tags</h6>
+        </div>
+        <div class="content hidden">
+        </div>
+      </div> -->
+
+    </div>
+
+    <div class="content-container">
+      <div class="top-bar">
+
+        <div class="spectrum-Textfield search-template">
+          <input type="text" placeholder="Search by template name..." name="field" value=""
+            class="spectrum-Textfield-input">
+        </div>
+
+        <div class="center-container">
+          <button class="spectrum-Button spectrum-Button--secondary spectrum-Button--quiet filter-button">
+            <span class="spectrum-Button-label">Show filters</span>
+          </button>
+        </div>
+
+        <div class="spectrum-ToggleSwitch my-team-only-toggle">
+          <input type="checkbox" class="spectrum-ToggleSwitch-input" id="toggle-onoff-1">
+          <span class="spectrum-ToggleSwitch-switch"></span>
+          <label class="spectrum-ToggleSwitch-label" for="toggle-onoff-1">Show my team only</label>
+        </div>
+
+        <div class="content-view-switcher">
+          <button class="spectrum-ActionButton spectrum-ActionButton--quiet grid-view is-selected">
+            <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="Edit">
+              <use xlink:href="#spectrum-icon-18-ClassicGridView" />
+            </svg>
+          </button>
+          <button class="spectrum-ActionButton spectrum-ActionButton--quiet table-view">
+            <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="Edit">
+              <use xlink:href="#spectrum-icon-18-ViewList" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <div class="title-bar">
+        <h2 class="spectrum-Heading spectrum-Heading--M">Popular templates</h2>
+
+        <div class="spectrum-Dropdown spectrum-Dropdown--quiet sort-drop-down">
+          <button class="spectrum-FieldButton spectrum-FieldButton--quiet spectrum-Dropdown-trigger"
+            aria-haspopup="listbox">
+            <span class="spectrum-Dropdown-label">Most recent</span>
+            <svg class="spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-Dropdown-icon" focusable="false"
+              aria-hidden="true">
+              <use xlink:href="#spectrum-css-icon-ChevronDownMedium" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="card-view grid">
+        <!-- card template insertion here -->
+        <!-- end card-view -->
+      </div>
+    </div>
+
+  </div>
+
+  <template id="template-tag">
+    <div class="tag-wrapper">
+      <div class="spectrum-Tags-item spectrum-Tags-item--deletable" tabindex="0" role="listitem">
+        <span class="spectrum-Tags-itemLabel">Goober</span>
+        <button class="spectrum-ClearButton spectrum-ClearButton--small" aria-label="Remove tag 1" tabindex="-1">
+          <svg class="spectrum-Icon spectrum-UIIcon-CrossSmall" focusable="false" aria-hidden="true">
+            <use xlink:href="#spectrum-css-icon-CrossSmall" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </template>
+
+  <template id="template-card">
+    <div class="spectrum-Card hidden" tabindex="0" role="figure" data-templatename="" data-adobeteam=""
+      data-productflow="" data-adobeproduct="" data-triggerevent="" data-lastsentdate="" data-lastedited=""
+      data-publishedinpast="" data-createdby="" data-receivingaudience="" data-language="" data-triggersystem=""
+      data-publishenvironment="">
+      <div class="spectrum-Card-coverPhoto"></div>
+      <div class=" spectrum-Card-body">
+        <div class="spectrum-Card-header">
+          <div class="spectrum-Card-title">
+            <h6 class="spectrum-Heading spectrum-Heading--XXS">Acrobat New User Onboarding</h6>
+          </div>
+        </div>
+        <div class="spectrum-Card-content">
+          <div class="spectrum-Card-description">
+            <p class="spectrum-Body spectrum-Body--S">Published on <span class="publish-environment">acrobat-na1</span>
+            </p>
+            <p class="spectrum-Body spectrum-Body--S">Sent on <span class="sent-date">Mar 4, 2020</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="spectrum-Card-footer">
+        <button class="spectrum-ActionButton spectrum-ActionButton--quiet favorite-template">
+          <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="Edit">
+            <use xlink:href="#spectrum-icon-18-Heart" />
+          </svg>
+        </button>
+        <button class="spectrum-Button spectrum-Button--secondary spectrum-Button--quiet">
+          <span class="spectrum-Button-label">Edit</span>
+        </button>
+      </div>
+    </div>
+  </template>
+
+</body>
+
+</html>

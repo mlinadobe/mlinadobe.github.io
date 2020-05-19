@@ -1,0 +1,19 @@
+<svg id="filter" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="Placement_Area" data-name="Placement Area" fill="red" stroke="rgba(0,0,0,0)" stroke-width="1" opacity="0">
+    <rect width="32" height="32" stroke="none"/>
+    <rect x="0.5" y="0.5" width="31" height="31" fill="none"/>
+  </g>
+  <g id="Background" fill="rgba(255,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="1">
+    <rect width="32" height="32" rx="4" stroke="none"/>
+    <rect x="0.5" y="0.5" width="31" height="31" rx="3.5" fill="none"/>
+  </g>
+  <g id="Icon">
+    <g id="Canvas" transform="translate(7 7)" fill="#747474" stroke="#747474" stroke-width="1" opacity="0">
+      <rect width="18" height="18" stroke="none"/>
+      <rect x="0.5" y="0.5" width="17" height="17" fill="none"/>
+    </g>
+    <path id="Path_1840" data-name="Path 1840" d="M16.75,3H7.95a2.5,2.5,0,0,0-4.9,0H1.25A.25.25,0,0,0,1,3.25v.5A.25.25,0,0,0,1.25,4h1.8a2.5,2.5,0,0,0,4.9,0h8.8A.25.25,0,0,0,17,3.75v-.5A.25.25,0,0,0,16.75,3ZM5.5,5A1.5,1.5,0,1,1,7,3.5,1.5,1.5,0,0,1,5.5,5Z" transform="translate(7 7)" fill="#747474"/>
+    <path id="Path_1841" data-name="Path 1841" d="M16.75,13H9.95a2.5,2.5,0,0,0-4.9,0H1.25a.25.25,0,0,0-.25.25v.5a.25.25,0,0,0,.25.25h3.8a2.5,2.5,0,0,0,4.9,0h6.8a.25.25,0,0,0,.25-.25v-.5A.25.25,0,0,0,16.75,13ZM7.5,15A1.5,1.5,0,1,1,9,13.5,1.5,1.5,0,0,1,7.5,15Z" transform="translate(7 7)" fill="#747474"/>
+    <path id="Path_1842" data-name="Path 1842" d="M1,8.25v.5A.25.25,0,0,0,1.25,9h8.8a2.5,2.5,0,0,0,4.9,0h1.8A.25.25,0,0,0,17,8.75v-.5A.25.25,0,0,0,16.75,8h-1.8a2.5,2.5,0,0,0-4.9,0H1.25A.25.25,0,0,0,1,8.25ZM11,8.5A1.5,1.5,0,1,1,12.5,10,1.5,1.5,0,0,1,11,8.5Z" transform="translate(7 7)" fill="#747474"/>
+  </g>
+</svg>

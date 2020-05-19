@@ -1,0 +1,38 @@
+order canceled
+product access delegated
+Daily digest comment notifications
+Pre-renewal reminder for reseller
+subscription canceled nonpayment
+new comment asset
+CCE Photoshop Single App entitlement notification
+New device login
+New asset shared
+subscription renewal change reminder
+bulk user add complete
+Password reset initiation
+subscription expiry day7
+day21 reminder
+Stakeholder shared asset viewed
+automatic 1Y renewal
+Feedback survey
+online purchase
+Password reset success
+renewal reminder period end
+primary email changed
+New AdobeID creation
+reseller adds licenses VIP
+subscription credit
+order received
+day14 reminder
+subscription renewal reminder
+fulfillment complete
+PA unpaid day30
+subscription suspended day30
+cc expiration day10
+day0 notice
+membership loyalty level change
+DC notification test
+day28 reminder
+Marketing Cloud Assets on Demand entitlement
+Billing date update product issue
+New review

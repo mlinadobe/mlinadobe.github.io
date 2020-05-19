@@ -1,0 +1,481 @@
+/*
+APO Prototype
+Author: Michael Lin
+*/
+
+:root {
+  --grid-gap-margin: 40px;
+  --card-margin: calc(var(--grid-gap-margin) * 0.75);
+  --border-color: var(--spectrum-global-color-gray-300);
+  --panel-height: 42px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  cursor: pointer;
+}
+
+.global-header {
+  display: flex;
+  flex: 0 0 64px;
+  align-items: center;
+  height: 64px;
+  width: 100vw;
+  border-bottom: 1px solid var(--border-color);
+  padding-left: 16px;
+  padding-right: 32px;
+}
+
+.global-header .nav-container {
+  flex: 2 0 auto;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.global-header .adobe-icon {
+  display: block;
+  background-image: url("../images/adobe-corp-logo.svg");
+  background-size: cover;
+  background-position: center;
+  width: 48px;
+  height: 48px;
+}
+
+.global-header h1 {
+  margin-right: 24px;
+}
+
+.global-header nav,
+.global-header nav ul,
+.global-header nav ul li,
+.global-header nav ul a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.global-header nav ul {
+  position: relative;
+  list-style-type: none;
+}
+
+.global-header nav li {
+  margin-right: 24px;
+}
+
+.global-header nav a {
+  text-decoration: none;
+  color: var(--spectrum-global-color-gray-700);
+}
+
+.global-header nav a.active {
+  color: var(--spectrum-global-color-gray-900);
+}
+
+.global-header .active-underline {
+  /* relative to parent */
+  position: absolute;
+  bottom: -1px;
+  width: 105px;
+  border-bottom: 2px solid var(--spectrum-global-color-gray-900);
+}
+
+.global-header .account-container {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.global-header .team-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+}
+
+.global-header .account-avatar {
+  display: block;
+  background-image: url("../images/global-avatar.png");
+  background-size: cover;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+}
+
+.main-container {
+  display: flex;
+  flex: 1 1 auto;
+
+}
+
+.left-sidebar {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 48px;
+  border-right: 1px solid var(--border-color);
+  padding-top: 16px;
+}
+
+/* Override Spectrum margin-left for action button group for sidebar*/
+[dir="ltr"] .left-sidebar .spectrum-ActionButton+.spectrum-ActionButton {
+  margin: 0;
+}
+
+.left-sidebar button {
+  margin-bottom: 8px;
+}
+
+.filter-container.hidden {
+  display: none;
+}
+
+
+.filter-container .panel.filter.open .header .icon-chevron {
+  transition: transform 160ms ease-in-out;
+  transform: rotate(90deg);
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  width: 256px;
+  border-right: 1px solid var(--border-color);
+}
+
+.filter-container .expand-all {
+  margin-left: auto;
+}
+
+.filter-container .more-actions-dropdown .spectrum-Popover {
+  display: none;
+}
+
+.filter-container .panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.filter-container .panel .header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /* height: var(--panel-height); */
+  height: 56px;
+  padding: 16px;
+}
+
+.filter-container .panel.filter .header {
+  cursor: pointer;
+}
+
+.filter-container .panel.filter .icon-chevron {
+  position: relative;
+  left: -2px;
+  width: 18px;
+  height: 18px;
+  background: url("../images/spectrum-icon-18-ChevronRight.svg") no-repeat center center;
+}
+
+.filter-container .panel .header h6 {
+  margin-left: 4px;
+  color: var(--spectrum-global-color-gray-800);
+}
+
+.filter-container .panel .content.hidden {
+  display: none;
+}
+
+.filter-container .panel .content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0 16px;
+  padding-bottom: 32px;
+}
+
+.filter-container .panel.filter .content p.description {
+
+  position: relative;
+  top: 0px;
+  margin-bottom: 18px;
+  color: var(--spectrum-global-color-gray-500);
+  padding: 0 2px;
+}
+
+.filter-container .panel .content .tag-wrapper {
+  /* change to block for 1 per line */
+  display: inline-block;
+  max-width: 100%;
+  margin: 2px 0;
+}
+
+.filter-container .panel .content .spectrum-Tags-itemLabel {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.filter-container .panel .combo-box {
+  display: flex;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.filter-container .panel .combo-box input {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 32px;
+  font-size: 14px;
+  padding: 8px;
+}
+
+.filter-container .spectrum-Dropdown {
+  width: 100%;
+}
+
+.filter-container .panel.filter .spectrum-Checkbox {
+  width: 100%;
+}
+
+.combo-box input {
+  -webkit-appearance: none;
+  box-shadow: none !important;
+}
+
+.combo-box input[type="text"]:focus {
+  outline: none;
+}
+
+.combo-box input[type="text"].focus,
+.combo-box button.focus {
+  border: 1px solid var(--spectrum-global-color-blue-400) !important;
+}
+
+.combo-box input[type="text"].hover,
+.combo-box button.hover {
+  border: 1px solid var(--spectrum-global-color-gray-500);
+}
+
+.combo-box input[type="text"]:hover::placeholder {
+  color: var(--spectrum-global-color-gray-900);
+}
+
+.combo-box input[type="text"]:hover {
+  border: 1px solid var(--spectrum-global-color-gray-400);
+}
+
+.combo-box input[type="text"] {
+  font-family: Adobe Clean;
+  border: 1px solid var(--spectrum-global-color-gray-300);
+}
+
+.combo-box input[type="text"] {
+  border-radius: 4px 0 0 4px;
+}
+
+.combo-box input[type="text"]::placeholder {
+  font-style: italic;
+  color: var(--spectrum-global-color-gray-600);
+}
+
+
+.combo-box input[type="text"] {
+  border-right: none;
+}
+
+.combo-box button {
+  left: -2px;
+  border-radius: 0 4px 4px 0;
+}
+
+.ui-menu {
+  position: absolute;
+  list-style: none;
+  background-color: white;
+  border-radius: 4px;
+  z-index: 10;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  font-size: 14px;
+  border: solid 1px var(--spectrum-global-color-gray-400);
+}
+
+.ui-menu .ui-menu-item {
+  padding: 8px 16px;
+
+}
+
+.ui-menu .ui-menu-item .ui-menu-item-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ui-menu .ui-menu-item:hover {
+  background-color: var(--spectrum-global-color-gray-200);
+}
+
+.ui-menu-item .ui-state-active {
+  background-color: var(--spectrum-global-color-gray-200);
+}
+
+.ui-helper-hidden-accessible {
+  display: none;
+}
+
+.ui-autocomplete {
+  /* limits to 10 results */
+  max-height: 372px;
+  overflow-y: auto;
+  /* prevent horizontal scrollbar */
+  overflow-x: hidden;
+  /* add margin to account for vertical scrollbar */
+  margin-right: 20px;
+}
+
+.content-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  background-color: #FBFBFB;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  margin: 24px 40px;
+  flex-wrap: wrap;
+}
+
+.top-bar .search-template {
+  margin-right: 16px;
+}
+
+.top-bar .center-container {
+  display: flex;
+  justify-content: center;
+  width: 104px;
+  margin-right: 16px;
+}
+
+.top-bar .spectrum-Textfield.search-template {
+  min-inline-size: 300px;
+}
+
+.top-bar .content-view-switcher {
+  margin-left: auto;
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.top-bar .content-view-switcher .card-view {
+  margin-left: auto;
+}
+
+.title-bar {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin: 0 var(--grid-gap-margin);
+  margin-bottom: 16px;
+}
+
+.title-bar .sort-drop-down {
+  margin-left: auto;
+}
+
+/* Calculates the card view to use flex layout to 
+left-align few cards and grid view for lots of cards  */
+.card-view {
+  display: flex;
+  margin-left: var(--grid-gap-margin);
+  margin-right: var(--grid-gap-margin);
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.card-view .spectrum-Card {
+  flex: 1 1 auto;
+  max-width: 280px;
+  min-width: 280px;
+  cursor: pointer;
+  margin-right: var(--card-margin);
+  margin-bottom: var(--grid-gap-margin);
+}
+
+.card-view .spectrum-Card.hidden {
+  display: none;
+}
+
+.card-view.grid {
+  display: grid;
+  margin-left: var(--grid-gap-margin);
+  margin-right: var(--grid-gap-margin);
+
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-gap: 4rem;
+}
+
+.card-view.grid .spectrum-Card {
+  max-width: 320px;
+  cursor: pointer;
+  margin-right: 0;
+}
+
+
+/* Override height of card cover photo  */
+.spectrum-Card-coverPhoto {
+  block-size: 200px;
+  background-position: center;
+  /* background-image: url("../images/template-email.png"); */
+}
+
+/* Make content size with inside content */
+.spectrum-Card-content {
+  block-size: auto;
+}
+
+
+.spectrum-Card h6 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.spectrum-Card-description {
+  font-size: 14px;
+}
+
+.spectrum-Card-description p {
+  color: #6E6E6E;
+}
+
+.spectrum-Card-footer {
+  display: flex;
+  justify-content: space-between;
+}

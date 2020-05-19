@@ -1,0 +1,17 @@
+Global
+Acrobat Web users
+Reseller Account Manager
+Admin
+DC users
+CCE
+Acrobat Desktop users
+Org admins
+Acrobat US
+Admins
+Reseller Account Manager, Customer admin
+Customer admin
+COM, CCM Individual
+primary admin
+CCI
+DC Web Users
+CCT

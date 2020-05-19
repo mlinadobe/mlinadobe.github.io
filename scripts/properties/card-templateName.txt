@@ -1,0 +1,48 @@
+Order cancelled
+Welcome email new user
+Collab daily digest
+Renewal reminder
+Canceled nonpayment
+Collab comments notification
+Provisioned email
+Adaptive auth notification
+Sharing notification email
+Renewal change reminder
+Order received
+Add users group complete
+Welcome email exiting user
+Password reset started
+Day 7 no email
+Attempt day21 email
+Sharing view email
+Renewal reminder
+Feedback main
+Order approved
+Password reset complete
+Renewal order not received
+Primary email changed
+General welcome notify
+Purchase auth created
+Invoice
+Unified order received
+Attempt day14 email
+Renewal reminder
+Fulfillment completed
+Purchase auth overdue
+Suspended 30 no email
+Credit card expiring
+Expiration email
+Loyalty changed membership
+Collab comments notification teaser
+Attempt day28 email
+DMA and provisioned
+Order disapproved
+Billing credit
+Sharing review email
+New comment notification email
+Invite notification email
+Reminder notification email
+Resend comment notification email
+Download notification email
+New comment notification email
+Expiring license notification email
